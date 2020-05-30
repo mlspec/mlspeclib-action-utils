@@ -1,0 +1,13 @@
+{
+    "python.pythonPath": "/home/daaronch/.local/share/virtualenvs/mlspeclib-action-utils-Z3qk4pho/bin/python3.6",
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        ".",
+        "-p",
+        "test_*.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.unittestEnabled": true
+}
