@@ -5,6 +5,7 @@ from io import StringIO
 import sys
 import os
 from pathlib import Path
+from mlspeclib import MLObject
 
 if Path("src").exists():
     sys.path.append(str(Path("src")))
