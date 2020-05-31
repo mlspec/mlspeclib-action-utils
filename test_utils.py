@@ -10,7 +10,7 @@ if Path("src").exists():
 sys.path.append(str(Path.cwd()))
 sys.path.append(str(Path.cwd().parent))
 
-from utils.utils import KnownException, report_found_params, raise_schema_mismatch  # noqa
+from utils import KnownException, report_found_params, raise_schema_mismatch  # noqa
 
 
 class UtilsTest(unittest.TestCase):
