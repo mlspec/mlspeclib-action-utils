@@ -41,7 +41,6 @@ class UtilsTest(unittest.TestCase):
 
         self.assertTrue(f"Expected Version: {expected_version}" in str(context.exception))
 
-
     # # TODO: Think about moving logger to a library of some kind so that it can be reused with this signature across derivaed containers
     # class setupLogger:
     #     _rootLogger = None

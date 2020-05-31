@@ -5,6 +5,7 @@ from io import StringIO
 import sys
 import os
 from pathlib import Path
+from mlspeclib import MLObject
 
 if Path("src").exists():
     sys.path.append(str(Path("src")))
@@ -46,7 +47,7 @@ class setupLogger:
     def __init__(self, debug=False):
         logLevel = logging.WARN
         if debug:
-            level = logging.DEBUG
+            logLevel = logging.DEBUG
 
         self._rootLogger = logging.getLogger()
         self._rootLogger.setLevel(logLevel)
