@@ -2,11 +2,16 @@ import os
 import sys
 import unittest
 import mlspeclib
-import utils
-from utils import KnownException, report_found_params, raise_schema_mismatch
+from mlspeclib import MLObject
+from pathlib import Path
+from mlspeclib import MLObject
 
-myPath = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(myPath, "..", "code"))
+if Path("src").exists():
+    sys.path.append(str(Path("src")))
+sys.path.append(str(Path.cwd()))
+sys.path.append(str(Path.cwd().parent))
+
+from utils.utils import KnownException, report_found_params, raise_schema_mismatch
 
 
 class UtilsTest(unittest.TestCase):
