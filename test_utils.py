@@ -1,8 +1,5 @@
-import os
 import sys
 import unittest
-import mlspeclib
-from mlspeclib import MLObject
 from pathlib import Path
 
 if Path("src").exists():
@@ -10,7 +7,7 @@ if Path("src").exists():
 sys.path.append(str(Path.cwd()))
 sys.path.append(str(Path.cwd().parent))
 
-from utils import KnownException, report_found_params, raise_schema_mismatch
+from utils import KnownException, report_found_params, raise_schema_mismatch  # noqa
 
 
 class UtilsTest(unittest.TestCase):

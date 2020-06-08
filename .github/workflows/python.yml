@@ -1,0 +1,31 @@
+name: Lint and Test
+on: [push, pull_request]
+jobs:
+  lint:
+    name: Lint and Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python 3.6
+        id: python_setup
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.6.10"
+
+      - name: Check Out Repository
+        id: checkout_repository
+        uses: actions/checkout@v1
+        with:
+          submodules: 'recursive'
+
+      - name: Lint
+        id: python_linting
+        run: |
+          python3 -m pip install -U pip
+          python3 -m pip install -r requirements.txt
+          python3 -m pip install flake8
+          flake8 . --count --config=.flake8 --show-source --statistics
+
+      - name: Test
+        id: python_test
+        run: |
+          python3 -m unittest test_*
