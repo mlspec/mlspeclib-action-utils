@@ -4,14 +4,13 @@ import unittest
 import mlspeclib
 from mlspeclib import MLObject
 from pathlib import Path
-from mlspeclib import MLObject
 
 if Path("src").exists():
     sys.path.append(str(Path("src")))
 sys.path.append(str(Path.cwd()))
 sys.path.append(str(Path.cwd().parent))
 
-from utils.utils import KnownException, report_found_params, raise_schema_mismatch
+from utils import KnownException, report_found_params, raise_schema_mismatch
 
 
 class UtilsTest(unittest.TestCase):
@@ -46,8 +45,7 @@ class UtilsTest(unittest.TestCase):
 
         self.assertTrue(f"Expected Version: {expected_version}" in str(context.exception))
 
-
-    # # TODO: Think about moving logger to a library of some kind so that it can be reused with this signature across derivaed containers
+    # TODO: Think about moving logger to a library of some kind so that it can be reused with this signature across derivaed containers
     # class setupLogger:
     #     _rootLogger = None
     #     _buffer = None
