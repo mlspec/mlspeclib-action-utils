@@ -95,6 +95,7 @@ class setupLogger:
         # echo "::set-output name=time::$time"
         output_message = f"::set-output name={variable_name}::{variable_value}"
         print(output_message)
+        print(f"{variable_name} - Length: {len(variable_value)}")
         self._rootLogger.debug(output_message)
 
         return output_message
