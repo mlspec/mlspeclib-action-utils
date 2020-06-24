@@ -4,6 +4,7 @@ from io import StringIO
 import sys
 from pathlib import Path
 from mlspeclib import MLObject
+import base64
 
 if Path("src").exists():
     sys.path.append(str(Path("src")))
@@ -147,3 +148,19 @@ def verify_result_contract(
     )
 
     return True
+
+
+def encode_raw_object_for_db(mlobject):
+    # Converts object -> dict -> yaml -> base64
+    dict_conversion = mlobject.dict_without_internal_variables()
+    yaml_conversion = convert_dict_to_yaml(dict_conversion)
+    encode_to_utf8_bytes = yaml_conversion.encode("utf-8")
+    base64_encode = base64.urlsafe_b64encode(encode_to_utf8_bytes)
+    final_encode_to_utf8 = str(base64_encode, "utf-8")
+    return final_encode_to_utf8
+
+
+def decode_raw_object_from_db(s: str):
+    # Converts base64 -> yaml
+    base64_decode = base64.urlsafe_b64decode(s)
+    return base64_decode
